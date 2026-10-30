@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sparkrelay-py"
+version = "0.1.0"
+description = "Python package for SparkRelay (initial scaffold)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "Panghu1102" }]
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sparkrelay"]
