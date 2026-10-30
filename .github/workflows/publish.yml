@@ -3,6 +3,7 @@ on:
   push:
     tags:
       - "v*"
+      - "[0-9]*"
 permissions:
   contents: read
 jobs:
@@ -19,7 +20,7 @@ jobs:
           import os, tomllib
           with open("pyproject.toml", "rb") as f:
               version = tomllib.load(f)["project"]["version"]
-          assert os.environ["GITHUB_REF_NAME"] == f"v{version}", "Tag/version mismatch"
+          assert os.environ["GITHUB_REF_NAME"].removeprefix("v") == version, "Tag/version mismatch"
           PY
       - name: Build package
         run: |
